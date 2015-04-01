@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Calculadora</string>
+
+    <string name="action_help">Ayuda</string>
+
+    <string name="btn_suma">Suma</string>
+    <string name="btn_resta">Resta</string>
+    <string name="btn_multiplicacion">Multiplicacion</string>
+    <string name="btn_division">Division</string>
+    <string name="input_number1">Numero 1</string>
+    <string name="input_number2">Numero 2</string>
+</resources>
