@@ -11,7 +11,7 @@ import android.widget.EditText;
 public class MainActivity extends ActionBarActivity {
     private EditText input_numero;
     private String contenido = "";
-    private Float resultado;
+    private Double resultado = 0d;
     private final static String TAG = MainActivity.class.getSimpleName();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +65,26 @@ public class MainActivity extends ActionBarActivity {
     }
     public void onClickButtonAbsoluto(View view){
         contenido = input_numero.getText().toString();
-        resultado = Float.parseFloat(contenido);
+        resultado = Double.parseDouble(contenido);
         resultado = valorAbsoluto(resultado);
         input_numero.setText(String.valueOf(resultado));
     }
-    public float valorAbsoluto(float resultado){
+    public void onClickButtonRaiz(View view){
+        resultado = Double.parseDouble(input_numero.getText().toString());
+        resultado = Math.sqrt(resultado);
+        input_numero.setText(String.valueOf(resultado));
+    }
+    public void onClickButtonCuadrado(View view){
+        resultado = Double.parseDouble(input_numero.getText().toString());
+        resultado *= resultado;
+        input_numero.setText(String.valueOf(resultado));
+    }
+    public Double valorAbsoluto(Double resultado){
         return resultado >= 0 ? resultado : -resultado;
+    }
+    public void limpiar(){
+        contenido = "";
+        resultado = 0d;
     }
 
     @Override
