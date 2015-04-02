@@ -64,12 +64,13 @@ public class MainActivity extends ActionBarActivity {
         input_numero.setText(contenido);
     }
     public void onClickButtonAbsoluto(View view){
-        resultado = Float.parseFloat(input_numero.getText().toString());
+        contenido = input_numero.getText().toString();
+        resultado = Float.parseFloat(contenido);
         resultado = valorAbsoluto(resultado);
         input_numero.setText(String.valueOf(resultado));
     }
     public float valorAbsoluto(float resultado){
-        return resultado > 0 ? resultado : -resultado;
+        return resultado >= 0 ? resultado : -resultado;
     }
 
     @Override

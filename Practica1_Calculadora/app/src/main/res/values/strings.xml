@@ -2,6 +2,7 @@
     <string name="app_name">Practica1_Calculadora</string>
 
     <string name="action_about">Sobre el programa</string>
+    <string name="action_help">Ayuda</string>
     <string name="suma">+</string>
     <string name="resta">-</string>
     <string name="multiplicacion">x</string>
