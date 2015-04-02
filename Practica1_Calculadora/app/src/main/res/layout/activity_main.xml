@@ -84,7 +84,10 @@
         android:id="@+id/btn_suma"
         android:layout_below="@+id/input_numero"
         android:layout_alignLeft="@+id/btn_resta"
-        android:layout_alignStart="@+id/btn_resta" />
+        android:layout_alignStart="@+id/btn_resta"
+        android:onClick="onClickButtonSuma"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -124,7 +127,10 @@
         android:id="@+id/btn_resta"
         android:layout_below="@+id/btn_suma"
         android:layout_alignLeft="@+id/btn_por"
-        android:layout_alignStart="@+id/btn_por" />
+        android:layout_alignStart="@+id/btn_por"
+        android:onClick="onClickButtonResta"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -164,7 +170,9 @@
         android:id="@+id/btn_por"
         android:layout_above="@+id/btn_tres"
         android:layout_toRightOf="@+id/btn_seis"
-        android:layout_toEndOf="@+id/btn_seis" />
+        android:onClick="onClickButtonMultiplica"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -174,7 +182,10 @@
         android:id="@+id/btn_division"
         android:layout_alignTop="@+id/btn_tres"
         android:layout_alignLeft="@+id/btn_por"
-        android:layout_alignStart="@+id/btn_por" />
+        android:layout_alignStart="@+id/btn_por"
+        android:onClick="onClickButtonDivision"
+        android:layout_alignRight="@+id/btn_por"
+        android:layout_alignEnd="@+id/btn_por" />
 
     <Button
         android:layout_width="wrap_content"

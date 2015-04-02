@@ -100,6 +100,33 @@ public class MainActivity extends ActionBarActivity {
         input_numero.setText(String.valueOf(resultado));
         Toast.makeText(this, "Al cuadrado", Toast.LENGTH_SHORT).show();
     }
+    public void onClickButtonGetNumero1(View miView)
+    {
+        numero1 = Double.parseDouble(input_numero.getText().toString());
+        input_numero.setText("");
+    }
+
+    public void onClickButtonSuma(View miView)
+    {
+        operacion="+";
+        onClickButtonGetNumero1(miView);
+    }
+    public void onClickButtonResta(View miView)
+    {
+        operacion="-";
+        onClickButtonGetNumero1(miView);
+    }
+    public void onClickButtonMultiplica(View miView)
+    {
+        operacion="*";
+        onClickButtonGetNumero1(miView);
+    }
+    public void onClickButtonDivision(View miView)
+    {
+        operacion="/";
+        onClickButtonGetNumero1(miView);
+    }
+    
     public void onClickIgual(View view) {
         numero2 = Double.parseDouble(input_numero.getText().toString());
         if (operacion.equals("+")) {
