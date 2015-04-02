@@ -2,6 +2,7 @@ package edu.cecyt9.ipn.practica1_calculadora;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,6 +20,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.e(TAG, "onCreate");
         setContentView(R.layout.activity_main);
         input_numero = (EditText) findViewById(R.id.input_numero);
     }
@@ -75,82 +77,115 @@ public class MainActivity extends ActionBarActivity {
 
     public void onClickButtonBorrar(View view){
         contenido = "";
+        resultado = 0d;
+        numero1 = 0d;
+        numero2 = 0d;
         input_numero.setText(contenido);
         Toast.makeText(this, "Se borro", Toast.LENGTH_SHORT).show();
     }
 
     public void onClickButtonAbsoluto(View view){
         contenido = input_numero.getText().toString();
-        resultado = Double.parseDouble(contenido);
-        resultado = valorAbsoluto(resultado);
-        input_numero.setText(String.valueOf(resultado));
-        Toast.makeText(this, "Valor Absoluto", Toast.LENGTH_SHORT).show();
+
+        if(!contenido.equals("")){
+            resultado = Double.parseDouble(contenido);
+            resultado = valorAbsoluto(resultado);
+            input_numero.setText(String.valueOf(resultado));
+
+            Toast.makeText(this, "Valor Absoluto", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void onClickButtonRaiz(View view){
-        resultado = Double.parseDouble(input_numero.getText().toString());
-        resultado = Math.sqrt(resultado);
-        input_numero.setText(String.valueOf(resultado));
-        Toast.makeText(this, "Raiz Cuadrada", Toast.LENGTH_SHORT).show();
+        contenido = input_numero.getText().toString();
+
+        if(!contenido.equals("")){
+            resultado = Double.parseDouble(contenido);
+            resultado = Math.sqrt(resultado);
+            input_numero.setText(String.valueOf(resultado));
+
+            Toast.makeText(this, "Raiz Cuadrada", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void onClickButtonCuadrado(View view){
-        resultado = Double.parseDouble(input_numero.getText().toString());
-        resultado *= resultado;
-        input_numero.setText(String.valueOf(resultado));
-        Toast.makeText(this, "Al cuadrado", Toast.LENGTH_SHORT).show();
+        contenido = input_numero.getText().toString();
+
+        if(!contenido.equals("")){
+            resultado = Double.parseDouble(contenido);
+            resultado *= resultado;
+            input_numero.setText(String.valueOf(resultado));
+
+            Toast.makeText(this, "Al cuadrado", Toast.LENGTH_SHORT).show();
+        }
+
     }
-    public void onClickButtonGetNumero1(View miView)
-    {
-        numero1 = Double.parseDouble(input_numero.getText().toString());
+    public void onClickButtonGetNumero1(View miView){
+        contenido = input_numero.getText().toString();
+
+        if(!contenido.equals(""))
+            numero1 = Double.parseDouble(contenido);
+
         input_numero.setText("");
     }
 
-    public void onClickButtonSuma(View miView)
-    {
-        operacion="+";
+    public void onClickButtonSuma(View miView){
+        operacion = "+";
+        Toast.makeText(this, "Mas", Toast.LENGTH_SHORT).show();
         onClickButtonGetNumero1(miView);
     }
-    public void onClickButtonResta(View miView)
-    {
-        operacion="-";
+
+    public void onClickButtonResta(View miView){
+        operacion = "-";
+        Toast.makeText(this, "Menos", Toast.LENGTH_SHORT).show();
         onClickButtonGetNumero1(miView);
     }
-    public void onClickButtonMultiplica(View miView)
-    {
-        operacion="*";
+
+    public void onClickButtonMultiplica(View miView){
+        operacion = "x";
+        Toast.makeText(this, "Por", Toast.LENGTH_SHORT).show();
         onClickButtonGetNumero1(miView);
     }
-    public void onClickButtonDivision(View miView)
-    {
-        operacion="/";
+
+    public void onClickButtonDivision(View miView){
+        operacion = "/";
+        Toast.makeText(this, "Entre", Toast.LENGTH_SHORT).show();
         onClickButtonGetNumero1(miView);
+    }
+    public void onClickButtonSignos(View view){
+        contenido = input_numero.getText().toString();
+        if(contenido.contains("-")){
+            contenido = contenido.replace("-", "");
+
+        }else{
+            contenido = "-" + contenido;
+        }
+        input_numero.setText(contenido);
+
     }
     
     public void onClickIgual(View view) {
         numero2 = Double.parseDouble(input_numero.getText().toString());
+
         if (operacion.equals("+")) {
             resultado = numero1 + numero2;
-            Toast.makeText(this, "Suma", Toast.LENGTH_SHORT).show();
         } else if (operacion.equals("-")) {
             resultado = numero1 - numero2;
-            Toast.makeText(this, "Resta", Toast.LENGTH_SHORT).show();
         } else if (operacion.equals("x")) {
             resultado = numero1 * numero2;
-            Toast.makeText(this, "Multiplicacion", Toast.LENGTH_SHORT).show();
         } else if(operacion.equals("/")){
             resultado = numero1 / numero2;
-            Toast.makeText(this, "Division", Toast.LENGTH_SHORT).show();
         } else{
-            resultado = numero1;
+            resultado = numero2;
         }
+
         input_numero.setText(String.valueOf(resultado));
     }
 
     public Double valorAbsoluto(Double resultado){
         return resultado >= 0 ? resultado : -resultado;
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

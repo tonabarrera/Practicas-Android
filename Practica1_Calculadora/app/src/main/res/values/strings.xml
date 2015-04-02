@@ -23,4 +23,5 @@
     <string name="num_8">8</string>
     <string name="num_9">9</string>
     <string name="borrar">Borrar Todo</string>
+    <string name="negativo">-/+</string>
 </resources>
