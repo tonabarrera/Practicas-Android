@@ -1,30 +1,48 @@
-package edu.cecyt9.ipn.practica1_calculadora;
+/*
+AUTOR: Barrera Pérez Carlos Tonatihu
 
+VERSION: 2.0
+
+DESCRIPCION: Este programa junta la practica uno y la practica dos, que en conjunto funcionan como
+        una calculadora muy elemental.
+
+OBSERVACIONES: La primera version, solo eran operaciones basicas (suma,
+        resta, multiplicacion, division), en esta version se incluyen la raiz cuadrada, elevar al
+        cuadrado y calcular el valor absoluto. El resultado se imprime en un EditText
+
+COMPILACION: Se conpila cuando se ejecuta
+
+EJECUCION: Solo se da click en el boton 'run app', shift + F10 o click en la pestaña 'Run' y después
+        click en 'Run App' y se selecciona el emulador o un dispositivo android.
+*/
+
+package edu.cecyt9.ipn.practica1_calculadora; //Nombre del paquete
+
+//Librerias que necesitamos
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
+//Esta es nuestra clase principal (Una actividad) que ereda de ActionBarActivity
 public class MainActivity extends ActionBarActivity {
+    //Nuestras variables que utilizaremos
     private EditText input_numero;
     private String contenido = "";
     private Double resultado, numero1, numero2;
     private String operacion = "";
-    private final static String TAG = MainActivity.class.getSimpleName();
-
+    //Esta es el primer metodo que se ejecuta cuando corremos nuestra app
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.e(TAG, "onCreate");
         setContentView(R.layout.activity_main);
         input_numero = (EditText) findViewById(R.id.input_numero);
     }
-
+    //Con todos estos metodos recupero lo que hay en el EditText y el numero indicado cuando se hace
+    //click en el boton que tiene este metodo
     public void onClickButtonCero(View view){
         contenido = input_numero.getText().toString() + "0";
         input_numero.setText(contenido);
@@ -74,7 +92,7 @@ public class MainActivity extends ActionBarActivity {
         contenido = input_numero.getText().toString() + "9";
         input_numero.setText(contenido);
     }
-
+    //Con este metodo limpiamos todos nuestros campos cuando se da click al boton que lo tiene asignado
     public void onClickButtonBorrar(View view){
         contenido = "";
         resultado = 0d;
@@ -83,19 +101,19 @@ public class MainActivity extends ActionBarActivity {
         input_numero.setText(contenido);
         Toast.makeText(this, "Se borro", Toast.LENGTH_SHORT).show();
     }
-
+    //Calcula el valor absoluto
     public void onClickButtonAbsoluto(View view){
         contenido = input_numero.getText().toString();
-
+        //Para evitar errores se checa si tiene algo
         if(!contenido.equals("")){
             resultado = Double.parseDouble(contenido);
-            resultado = valorAbsoluto(resultado);
+            resultado = valorAbsoluto(resultado); //Se puede remplazar por Math.abs(resultado)
             input_numero.setText(String.valueOf(resultado));
 
-            Toast.makeText(this, "Valor Absoluto", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Valor Absoluto", Toast.LENGTH_SHORT).show(); //Un mensaje para el usuario
         }
     }
-
+    //Calcula la raiz de un numero
     public void onClickButtonRaiz(View view){
         contenido = input_numero.getText().toString();
 
@@ -108,7 +126,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
     }
-
+    //Eleva al cuadrado
     public void onClickButtonCuadrado(View view){
         contenido = input_numero.getText().toString();
 
@@ -121,6 +139,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
     }
+    //recuperamos el primer numero
     public void onClickButtonGetNumero1(View miView){
         contenido = input_numero.getText().toString();
 
@@ -129,7 +148,7 @@ public class MainActivity extends ActionBarActivity {
 
         input_numero.setText("");
     }
-
+    //Guardamos que operacion se hace para despues evaluar y hacer la operacion adecuada
     public void onClickButtonSuma(View miView){
         operacion = "+";
         Toast.makeText(this, "Mas", Toast.LENGTH_SHORT).show();
@@ -153,10 +172,11 @@ public class MainActivity extends ActionBarActivity {
         Toast.makeText(this, "Entre", Toast.LENGTH_SHORT).show();
         onClickButtonGetNumero1(miView);
     }
+    //Agrega o quita el signo negativo a el numero
     public void onClickButtonSignos(View view){
         contenido = input_numero.getText().toString();
-        if(contenido.contains("-")){
-            contenido = contenido.replace("-", "");
+        if(contenido.contains("-")){ //Checamos si tiene el signo negativo
+            contenido = contenido.replace("-", ""); //Si lo tiene lo quitamos
 
         }else{
             contenido = "-" + contenido;
@@ -164,9 +184,12 @@ public class MainActivity extends ActionBarActivity {
         input_numero.setText(contenido);
 
     }
-    
+    //Controlamos que operacion se realiza cuando se da click en el boton igual
     public void onClickIgual(View view) {
-        numero2 = Double.parseDouble(input_numero.getText().toString());
+        contenido = input_numero.getText().toString();
+        if(!contenido.equals("")){
+            numero2 = Double.parseDouble(contenido);
+        }
 
         if (operacion.equals("+")) {
             resultado = numero1 + numero2;
@@ -182,9 +205,9 @@ public class MainActivity extends ActionBarActivity {
 
         input_numero.setText(String.valueOf(resultado));
     }
-
+    //Este metodo calcula el valor absoluto de un numero
     public Double valorAbsoluto(Double resultado){
-        return resultado >= 0 ? resultado : -resultado;
+        return resultado >= 0 ? resultado : -resultado; //usamos el operador terneario para rapido
     }
 
     @Override
@@ -203,8 +226,10 @@ public class MainActivity extends ActionBarActivity {
 
         switch(id){
             case R.id.action_about:
+                Toast.makeText(this, "Programa hecho por Barrera Pérez Carlos Tonatihu 6IM7", Toast.LENGTH_LONG).show();
                 return true;
             case R.id.action_help:
+                Toast.makeText(this, "¡Ayudame!", Toast.LENGTH_SHORT).show();
                 return true;
         }
 

@@ -1,3 +1,4 @@
+<!--Creamos aqui nuestras cadenas de texto que se van a mostrar para no harcodear después en el xml-->
 <resources>
     <string name="app_name">Practica1_Calculadora</string>
 
