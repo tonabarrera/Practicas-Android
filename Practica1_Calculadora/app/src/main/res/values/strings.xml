@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Practica1_Calculadora</string>
+
+    <string name="action_about">Sobre el programa</string>
+    <string name="suma">+</string>
+    <string name="resta">-</string>
+    <string name="multiplicacion">x</string>
+    <string name="division">/</string>
+    <string name="igual">=</string>
+    <string name="raiz">√</string>
+    <string name="potencia">x²</string>
+    <string name="absoluto">|x|</string>
+
+    <string name="num_0">0</string>
+    <string name="num_1">1</string>
+    <string name="num_2">2</string>
+    <string name="num_3">3</string>
+    <string name="num_4">4</string>
+    <string name="num_5">5</string>
+    <string name="num_6">6</string>
+    <string name="num_7">7</string>
+    <string name="num_8">8</string>
+    <string name="num_9">9</string>
+    <string name="borrar">Borrar Todo</string>
+</resources>
