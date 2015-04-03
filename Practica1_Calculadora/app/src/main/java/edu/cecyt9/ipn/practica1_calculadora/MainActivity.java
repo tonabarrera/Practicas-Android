@@ -32,7 +32,7 @@ public class MainActivity extends ActionBarActivity {
     //Nuestras variables que utilizaremos
     private EditText input_numero;
     private String contenido = "";
-    private Double resultado, numero1, numero2;
+    private Double resultado = 0d, numero1 = 0d, numero2 = 0d;
     private String operacion = "";
     //Esta es el primer metodo que se ejecuta cuando corremos nuestra app
     @Override
@@ -126,19 +126,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
     }
-    //Eleva al cuadrado
-    public void onClickButtonCuadrado(View view){
-        contenido = input_numero.getText().toString();
 
-        if(!contenido.equals("")){
-            resultado = Double.parseDouble(contenido);
-            resultado *= resultado;
-            input_numero.setText(String.valueOf(resultado));
-
-            Toast.makeText(this, "Al cuadrado", Toast.LENGTH_SHORT).show();
-        }
-
-    }
     //recuperamos el primer numero
     public void onClickButtonGetNumero1(View miView){
         contenido = input_numero.getText().toString();
@@ -172,6 +160,13 @@ public class MainActivity extends ActionBarActivity {
         Toast.makeText(this, "Entre", Toast.LENGTH_SHORT).show();
         onClickButtonGetNumero1(miView);
     }
+
+    public void onClickButtonPotencia(View view){
+        operacion = "potencia";
+        Toast.makeText(this, "Potencia", Toast.LENGTH_SHORT).show();
+        onClickButtonGetNumero1(view);
+
+    }
     //Agrega o quita el signo negativo a el numero
     public void onClickButtonSignos(View view){
         contenido = input_numero.getText().toString();
@@ -199,7 +194,9 @@ public class MainActivity extends ActionBarActivity {
             resultado = numero1 * numero2;
         } else if(operacion.equals("/")){
             resultado = numero1 / numero2;
-        } else{
+        } else if(operacion.equals("potencia")){
+            resultado = Math.pow(numero1, numero2);
+        } else {
             resultado = numero2;
         }
 
@@ -227,9 +224,6 @@ public class MainActivity extends ActionBarActivity {
         switch(id){
             case R.id.action_about:
                 Toast.makeText(this, "Programa hecho por Barrera Pérez Carlos Tonatihu 6IM7", Toast.LENGTH_LONG).show();
-                return true;
-            case R.id.action_help:
-                Toast.makeText(this, "¡Ayudame!", Toast.LENGTH_SHORT).show();
                 return true;
         }
 

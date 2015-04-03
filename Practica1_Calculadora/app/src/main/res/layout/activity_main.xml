@@ -33,7 +33,7 @@
         android:layout_alignBottom="@+id/btn_raiz"
         android:layout_toRightOf="@+id/btn_raiz"
         android:layout_toEndOf="@+id/btn_raiz"
-        android:onClick="onClickButtonCuadrado" />
+        android:onClick="onClickButtonPotencia" />
 
     <Button
         android:layout_width="wrap_content"

@@ -3,14 +3,13 @@
     <string name="app_name">Practica1_Calculadora</string>
 
     <string name="action_about">Sobre el programa</string>
-    <string name="action_help">Ayuda</string>
     <string name="suma">+</string>
     <string name="resta">-</string>
     <string name="multiplicacion">x</string>
     <string name="division">/</string>
     <string name="igual">=</string>
     <string name="raiz">√</string>
-    <string name="potencia">x²</string>
+    <string name="potencia">x^</string>
     <string name="absoluto">|x|</string>
 
     <string name="num_0">0</string>
