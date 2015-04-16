@@ -6,7 +6,22 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="edu.ipn.cecyt9.practica04_reservas.SecondActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/text_contenido"
+        android:id="@+id/text_contenido"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_otra_reserva"
+        android:id="@+id/btn_otra_reserva"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="64dp" />
 </RelativeLayout>

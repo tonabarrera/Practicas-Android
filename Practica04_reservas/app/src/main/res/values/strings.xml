@@ -1,8 +1,12 @@
 <resources>
-    <string name="app_name">Practica04_reservas</string>
+    <string name="app_name">Reservas</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_main">MainActivity</string>
-    <string name="title_activity_second">SecondActivity</string>
+    <string name="action_help">Ayuda</string>
+    <string name="action_about">Sobre el app</string>
+    <string name="title_activity_main">Reservar</string>
+    <string name="title_activity_second">Mis Reservaciones</string>
+    <string name="text_titulo">Login</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="text_contenido">Nada que mostrar</string>
+    <string name="btn_otra_reserva">Hacer otra reservacion</string>
 </resources>

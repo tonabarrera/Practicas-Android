@@ -1,38 +1,42 @@
 package edu.ipn.cecyt9.practica04_reservas;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 
 public class SecondActivity extends ActionBarActivity {
 
+    private String nombre = "", fecha = "", hora = "";
+    private int noDePersonas = 0;
+    TextView text_contenido;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
+
+        text_contenido = (TextView) findViewById(R.id.text_contenido);
+
+        Bundle recibe = new Bundle();
+        recibe = this.getIntent().getExtras();
+
+        nombre = recibe.getString("nombre");
+        noDePersonas = recibe.getInt("personas");
+        fecha = recibe.getString("fecha");
+        hora = recibe.getString("hora");
+
+        text_contenido.setText("Reservacion a nombre de:\n" + nombre
+                + "\nNo. de personas: " + noDePersonas + "\nFecha: " + fecha
+                + "\nHora: " + hora);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_second, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void onClickButtonOtraReserva(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        finish();
+        startActivity(intent);
     }
 }
