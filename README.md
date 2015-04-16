@@ -3,9 +3,8 @@ Puras practicas de android de la clase de laboratorio
 ### Las practicas
 
 Practica 1.- Calculadora
-![calculadora](https://github.com/iLordTony/Practicas-Android/)
+![calculadora](https://github.com/iLordTony/Practicas-Android/blob/master/Capturas/calculadora.png)
 Practica 4.- Reservas
-![reservas](https://github.com/iLordTony/Practicas-Android/)
 
 ### Requisitos
 * [Android Studio] - IDE para desarrollar en android
