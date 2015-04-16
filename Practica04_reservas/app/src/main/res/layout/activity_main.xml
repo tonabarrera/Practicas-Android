@@ -25,7 +25,7 @@
         android:text="@string/text_personas" />
 
     <SeekBar
-        android:id="@+id/input_personas"
+        android:id="@+id/seekbar_personas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:max="30"
@@ -41,6 +41,7 @@
         android:id="@+id/btn_fecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onClickBotones"
         android:text="@string/btn_fecha" />
 
     <TextView
@@ -53,6 +54,7 @@
         android:id="@+id/btn_hora"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onClickBotones"
         android:text="@string/btn_hora" />
 
     <Button
@@ -62,21 +64,5 @@
         android:layout_marginTop="15dip"
         android:onClick="onClickReserva"
         android:text="@string/btn_reserva" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/editText"
-        android:layout_gravity="center_horizontal" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="time"
-        android:ems="10"
-        android:id="@+id/editText2"
-        android:layout_gravity="center_horizontal" />
 
 </LinearLayout>

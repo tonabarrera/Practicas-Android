@@ -23,7 +23,8 @@
         android:id="@+id/input_email"
         android:layout_below="@+id/textTitulo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp" />
+        android:layout_marginTop="30dp"
+        android:hint="@string/hint_correo" />
 
     <EditText
         android:layout_width="match_parent"
@@ -31,9 +32,10 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/input_contra"
-        android:layout_below="@+id/input_email"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp" />
+        android:layout_marginTop="30dp"
+        android:hint="@string/hint_password"
+        android:layout_below="@+id/input_email" />
 
     <Button
         android:layout_width="match_parent"
@@ -42,6 +44,8 @@
         android:id="@+id/btn_entrar"
         android:layout_below="@+id/input_contra"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="73dp"
+        android:layout_marginTop="30dp"
         android:onClick="onClickEntrar"/>
+
+
 </RelativeLayout>

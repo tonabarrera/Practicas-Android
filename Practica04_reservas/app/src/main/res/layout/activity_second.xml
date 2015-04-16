@@ -21,6 +21,7 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_otra_reserva"
         android:id="@+id/btn_otra_reserva"
+        android:onClick="onClickButtonOtraReserva"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="64dp" />

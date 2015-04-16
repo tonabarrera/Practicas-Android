@@ -10,10 +10,12 @@
     <string name="text_contenido">Nada que mostrar</string>
     <string name="btn_otra_reserva">Hacer otra reservacion</string>
     <string name="text_nombre">A que nombre:</string>
-    <string name="text_personas">No. de personas:</string>
+    <string name="text_personas">No. de personas: %d</string>
     <string name="text_fecha">Para que fecha:</string>
-    <string name="btn_fecha">dd - MMMM – yyyy</string>
+    <string name="btn_fecha">dd - mmm – yyyy</string>
     <string name="text_hora">Para que hora:</string>
-    <string name="btn_hora">HH:mm</string>
+    <string name="btn_hora">hh:mm</string>
     <string name="btn_reserva">Hacer reservacion</string>
+    <string name="hint_correo">Correo</string>
+    <string name="hint_password">Contraseña</string>
 </resources>
