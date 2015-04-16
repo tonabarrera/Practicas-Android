@@ -20,6 +20,7 @@ public class SecondActivity extends ActionBarActivity {
         setContentView(R.layout.activity_second);
 
         text_contenido = (TextView) findViewById(R.id.text_contenido);
+/*
 
         Bundle recibe = new Bundle();
         recibe = this.getIntent().getExtras();
@@ -28,6 +29,7 @@ public class SecondActivity extends ActionBarActivity {
         noDePersonas = recibe.getInt("personas");
         fecha = recibe.getString("fecha");
         hora = recibe.getString("hora");
+*/
 
         text_contenido.setText("Reservacion a nombre de:\n" + nombre
                 + "\nNo. de personas: " + noDePersonas + "\nFecha: " + fecha

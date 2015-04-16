@@ -9,4 +9,11 @@
     <string name="btn_entrar">Entrar</string>
     <string name="text_contenido">Nada que mostrar</string>
     <string name="btn_otra_reserva">Hacer otra reservacion</string>
+    <string name="text_nombre">A que nombre:</string>
+    <string name="text_personas">No. de personas:</string>
+    <string name="text_fecha">Para que fecha:</string>
+    <string name="btn_fecha">dd - MMMM – yyyy</string>
+    <string name="text_hora">Para que hora:</string>
+    <string name="btn_hora">HH:mm</string>
+    <string name="btn_reserva">Hacer reservacion</string>
 </resources>
