@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Intents</string>
+
+    <string name="action_about">Sobre el app</string>
+    <string name="btn_mejorado">Mandar correo (Mejorado)</string>
+    <string name="btn_correo">Mandar correo</string>
+    <string name="btn_foto">Tomar foto</string>
+    <string name="btn_street">View street</string>
+    <string name="btn_maps">Google maps</string>
+    <string name="btn_llamada">Llamada de telefono</string>
+    <string name="btn_web">Abrir pestaña web</string>
+    <string name="text_title">Selecciona un intent</string>
+</resources>
