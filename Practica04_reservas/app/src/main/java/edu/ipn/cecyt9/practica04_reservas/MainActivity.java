@@ -1,9 +1,12 @@
 package edu.ipn.cecyt9.practica04_reservas;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +15,18 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void onClickReserva(View v) {
+        Intent intent = new Intent(this, SecondActivity.class);
+        Bundle datos = new Bundle();
+        /*datos.putString("nombre", nombre.getText().toString().trim());
+        datos.putInt("personas", personas);
+        datos.putString("fecha", fechaSel);
+        datos.putString("hora", horaSel);*/
+        intent.putExtras(datos);
+        finish();
+        startActivity(intent);
     }
 
     @Override
@@ -29,7 +44,8 @@ public class MainActivity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_about) {
+            Toast.makeText(this, "Hecho por Carlos Tonatihu", Toast.LENGTH_LONG).show();
             return true;
         }
 

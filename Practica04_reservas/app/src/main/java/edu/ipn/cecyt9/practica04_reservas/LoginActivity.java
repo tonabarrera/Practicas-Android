@@ -52,6 +52,7 @@ public class LoginActivity extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_help) {
             Toast.makeText(this, "correo@gmail.com y 123456", Toast.LENGTH_LONG).show();
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
