@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,6 +20,7 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity {
 
     private Uri uri;
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,21 +44,22 @@ public class MainActivity extends ActionBarActivity {
 
     public void onClickGoogleMaps(View view)
     {
-        uri = Uri.parse("geo:19.453659, -99.175298");
+        uri = Uri.parse("geo:19.453659,-99.175298");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
     }
 
-    public void onClickViewStreet(View view){
-        uri = Uri.parse("google.streetview:cbll=19.453659, -99.175298");
-        Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
-        mapIntent.setPackage("com.google.android.apps.maps");
-        startActivity(mapIntent);
+    public void onClickStreetView(View view){
+        //0 bearing 0 zoom tilt
+        uri = Uri.parse("google.streetview:cbll=19.453659,-99.175298&cbp=0,300,0,1,0");
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        intent.setPackage("com.google.android.apps.maps");
+        startActivity(intent);
     }
 
     public void onClickTomarFoto(View view)
     {
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         startActivity(intent);
     }
 
@@ -70,21 +74,12 @@ public class MainActivity extends ActionBarActivity {
     }
     public void onClickMandarCorreoMejorado(View view)
     {
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_SUBJECT, "Asunto: Prueba");
-        intent.putExtra(Intent.EXTRA_TEXT, "Contenido del correo: Prueba");
+        Intent intent = new Intent(Intent.ACTION_SEND, Uri.parse("mailto:"));
+        intent.setType("message/rfc822");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Prueba");
+        intent.putExtra(Intent.EXTRA_TEXT, "Este es el contenido de la prueba");
         intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"carlostonatihu@gmail.com"});
-        startActivity(intent);
-    }
-
-    public static boolean isIntentAvailable(Context context, String action) {
-        final PackageManager packageManager = context.getPackageManager();
-        final Intent intent = new Intent(action);
-        List<ResolveInfo> list =
-                packageManager.queryIntentActivities(intent,
-                        PackageManager.MATCH_DEFAULT_ONLY);
-        return list.size() > 0;
+        startActivity(Intent.createChooser(intent, "Selecciona una app:"));
     }
 
     @Override
