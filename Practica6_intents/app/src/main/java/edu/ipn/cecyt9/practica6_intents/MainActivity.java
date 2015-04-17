@@ -46,7 +46,7 @@ public class MainActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
-    public void oClickViewStreet(View view){
+    public void onClickViewStreet(View view){
         uri = Uri.parse("google.streetview:cbll=19.453659, -99.175298");
         Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
         mapIntent.setPackage("com.google.android.apps.maps");
