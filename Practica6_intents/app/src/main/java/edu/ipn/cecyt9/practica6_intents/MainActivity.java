@@ -1,44 +1,37 @@
 package edu.ipn.cecyt9.practica6_intents;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import java.util.List;
-
 
 public class MainActivity extends ActionBarActivity {
 
     private Uri uri;
-    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
+    //Los siguientes metodos se ejecutan al pulsar el boton correspondiente
     public void onClickAbrirPaginaWeb(View view)
     {
-        uri = Uri.parse("http://coatl.cecyt9.ipn.mx/eoropeza/home.html");
+        uri = Uri.parse("http://coatl.cecyt9.ipn.mx/eoropeza/home.html"); //Especificamos el url de la pagina
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
+        startActivity(intent); //Disparamos el intent
     }
 
     public void onClickLlamadaTelefono(View view)
     {
-        uri = Uri.parse("tel:59216686");
-        Intent intent = new Intent(Intent.ACTION_CALL, uri);
+        uri = Uri.parse("tel:59216686"); //Pasamos el numero que sera marcado como parte de la data
+        Intent intent = new Intent(Intent.ACTION_CALL, uri); //Llamamos al itent para llamar
         startActivity(intent);
     }
 
@@ -50,7 +43,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onClickStreetView(View view){
-        //0 bearing 0 zoom tilt
+        //segun la documentacion de android de esta forma se accede a streetview
         uri = Uri.parse("google.streetview:cbll=19.453659,-99.175298&cbp=0,300,0,1,0");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         intent.setPackage("com.google.android.apps.maps");
@@ -67,6 +60,7 @@ public class MainActivity extends ActionBarActivity {
     {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
+        //Especificamos los campos del correo
         intent.putExtra(Intent.EXTRA_SUBJECT, "Asunto: Prueba");
         intent.putExtra(Intent.EXTRA_TEXT, "Contenido del correo: Prueba");
         intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"carlostonatihu@gmail.com"});
@@ -75,7 +69,7 @@ public class MainActivity extends ActionBarActivity {
     public void onClickMandarCorreoMejorado(View view)
     {
         Intent intent = new Intent(Intent.ACTION_SEND, Uri.parse("mailto:"));
-        intent.setType("message/rfc822");
+        intent.setType("message/rfc822"); //se pasa este tipo de data que solo entienden los servicios de correo
         intent.putExtra(Intent.EXTRA_SUBJECT, "Prueba");
         intent.putExtra(Intent.EXTRA_TEXT, "Este es el contenido de la prueba");
         intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"carlostonatihu@gmail.com"});
