@@ -3,4 +3,6 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="escuela_name">Cecyt 9 "Juan de Dios Bátiz", graficos en android</string>
+    <string name="texto_canvas">Texto con canvas</string>
 </resources>
