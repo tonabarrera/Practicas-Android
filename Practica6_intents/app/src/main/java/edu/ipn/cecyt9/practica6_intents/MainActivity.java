@@ -1,5 +1,20 @@
-package edu.ipn.cecyt9.practica6_intents;
+/*
+AUTOR: Barrera Pérez Carlos Tonatihu
 
+VERSION: 2.0
+
+DESCRIPCION: Esta aplicacion ejecuta diversos intents
+
+OBSERVACIONES: En esta version en la parte de enviar email solo aparecen servicios de email y tambien ya funciona la street view a la escuela
+
+COMPILACION: Se conpila cuando se ejecuta
+
+EJECUCION: Solo se da click en el boton 'run app', shift + F10 o click en la pestaña 'Run' y después
+        click en 'Run App' y se selecciona el emulador o un dispositivo android.
+*/
+
+package edu.ipn.cecyt9.practica6_intents;
+//importamos todo lo necesario
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -78,19 +93,14 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+        int id = item.getItemId();
         if (id == R.id.action_about) {
             Toast.makeText(this, "Hecho por Carlos Tonatihu", Toast.LENGTH_SHORT).show();
             return true;
