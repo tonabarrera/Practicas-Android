@@ -4,13 +4,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.TransitionDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 // ejemplo BitmapDrawable
-public class MainActivity extends Activity {
+/*public class MainActivity extends Activity {
     EjemploView ejemploView;
 
     @Override
@@ -43,7 +50,7 @@ public class MainActivity extends Activity {
             miImagen.draw(canvas);
         }
     }
-}
+}*/
 
 /*public class MainActivity extends Activity {
 
@@ -52,8 +59,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
         ImageView image = new ImageView(this);
-        Drawable bitmapDrawable = (Drawable)
-                getResources().getDrawable(R.drawable.mi_imagen);
+        Drawable bitmapDrawable = getResources().getDrawable(R.drawable.mi_imagen);
         image.setImageDrawable(bitmapDrawable);
         setContentView(image);
     }
@@ -68,8 +74,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
         ImageView image = new ImageView(this);
-        GradientDrawable gradientEjemplo = (GradientDrawable)
-                getResources().getDrawable(R.drawable.degradado);
+        GradientDrawable gradientEjemplo = (GradientDrawable) getResources().getDrawable(R.drawable.degradado);
         image.setImageDrawable(gradientEjemplo);
         setContentView(image);
     }
@@ -122,7 +127,6 @@ public class MainActivity extends Activity {
 }*/
 
 // ejemplo AnimationDrawable
-/*
 public class MainActivity extends Activity {
     AnimationDrawable animacion;
 
@@ -144,4 +148,4 @@ public class MainActivity extends Activity {
         setContentView(vista);
 
     }
-}*/
+}

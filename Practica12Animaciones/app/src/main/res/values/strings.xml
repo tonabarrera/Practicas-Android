@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Practica 12 Animaciones</string>
+
+    <string name="hello_batiz">Hello Bátiz!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_mi_animacion">MiAnimacion</string>
+</resources>
