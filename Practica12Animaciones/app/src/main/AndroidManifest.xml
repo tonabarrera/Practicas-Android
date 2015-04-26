@@ -10,10 +10,11 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
+
         </activity>
         <activity
             android:name=".MiAnimacion"
-            android:label="@string/title_activity_mi_animacion" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
