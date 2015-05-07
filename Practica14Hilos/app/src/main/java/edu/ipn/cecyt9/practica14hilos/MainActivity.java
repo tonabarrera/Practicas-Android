@@ -25,11 +25,12 @@ public class MainActivity extends Activity {
 
     public void calcularOperacion(View view) {
         int n = Integer.parseInt(entrada.getText().toString());
-        salidaFactorial.append(n +"! = ");
+        salidaFactorial.append("\n" + n +"! = ");
+        salidaSerie.append("\n" + n +" = ");
 
         MiTarea  tarea = new MiTarea();
-        //SerieHilo serieHilo = new SerieHilo();
-        //serieHilo.execute(n);
+        SerieHilo serieHilo = new SerieHilo();
+        serieHilo.execute(n);
         tarea.execute(n);
     }
 
@@ -48,20 +49,26 @@ public class MainActivity extends Activity {
 
         @Override
         protected void onPostExecute(Integer res) {
-            salidaFactorial.append(res + "\n");
+            salidaFactorial.append(String.valueOf(res));
         }
     }
 
-    class SerieHilo extends AsyncTask<Integer, Void, Long> {
+    class SerieHilo extends AsyncTask<Integer, Void, Integer> {
 
         @Override
-        protected Long doInBackground(Integer... params) {
-            return null;
+        protected Integer doInBackground(Integer... params) {
+            int var = 1;
+            int resultado = 0;
+            for(int i = 0; i < params[0]; i++){
+                resultado = resultado + var;
+                var = resultado - var;
+            }
+            return resultado;
         }
 
         @Override
-        protected void onPostExecute(Long aLong) {
-            super.onPostExecute(aLong);
+        protected void onPostExecute(Integer resultado) {
+            salidaSerie.append(String.valueOf(resultado));
         }
     }
 }
