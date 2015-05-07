@@ -3,7 +3,7 @@ AUTOR: Barrera Pérez Carlos Tonatihu
 VERSION: 2.0
 DESCRIPCION: Este programa junta la practica 8 que dibuja distintas figuras
 OBSERVACIONES: A esta version se le agregaron nuevas figuras, un triangulo, pentagono y un hexagono
-COMPILACION: Se conpila cuando se ejecuta
+COMPILACION: Se compila cuando se ejecuta
 EJECUCION: Solo se da click en el boton 'run app', shift + F10 o click en la pestaña 'Run' y después
         click en 'Run App' y se selecciona el emulador o un dispositivo android.
 */

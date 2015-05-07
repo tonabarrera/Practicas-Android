@@ -7,7 +7,7 @@ DESCRIPCION: Esta actividad funciona como login
 
 OBSERVACIONES: Si los datos ingresados son correctos se cierra esta actividad y se avanza a la siguiente
 
-COMPILACION: Se conpila cuando se ejecuta
+COMPILACION: Se compila cuando se ejecuta
 
 EJECUCION: Solo se da click en el boton 'run app', shift + F10 o click en la pestaña 'Run' y después
         click en 'Run App' y se selecciona el emulador o un dispositivo android.
