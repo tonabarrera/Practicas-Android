@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -23,6 +24,7 @@ public class MainActivity extends Activity {
 
     class SpecialView extends View {
         float x = 50;
+        float radio = 50;
         float y = 50;
         String accion = "Accion";
         String texto = "Evento";
@@ -37,26 +39,24 @@ public class MainActivity extends Activity {
 
         @Override
         protected void onDraw(Canvas canvas) {
-            canvas.drawColor(Color.WHITE); // color de fondo
+            Log.e("Hola", "hola");
+             // color de fondo
             paint.setStyle(Paint.Style.STROKE);
             paint.setStrokeWidth(6);
             paint.setColor(Color.RED);
 
             if (accion.equals("down")) {
-                path.moveTo(x, y);
+                path.addCircle(x, y, radio, Path.Direction.CCW);
             }
             if (accion.equals("move")) {
-                path.lineTo(x, y);
+                path.addCircle(x, y, radio, Path.Direction.CCW);
             }
-
             canvas.drawPath(path, paint);
-
             paint.setColor(Color.BLACK);
             paint.setTextSize(20);
             paint.setStrokeWidth(2);
-            canvas.drawText(texto, 100, 130, paint); canvas.drawText("x = " + x +
-                    "  y = " + y, 100, 50, paint);
-            //canvas.drawc
+            canvas.drawText(texto, 100, 130, paint);
+            canvas.drawText("x = " + x + "  y = " + y, 100, 50, paint);
         }
 
         @Override
@@ -78,5 +78,6 @@ public class MainActivity extends Activity {
             invalidate();
             return true;
         }
+
     }
 }
