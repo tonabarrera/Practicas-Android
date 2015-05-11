@@ -1,0 +1,93 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A que Nombre:" />
+
+    <EditText
+        android:id="@+id/nombre"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:capitalize="words"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/cuantasPersonas"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Personas: %d" />
+
+    <SeekBar
+        android:id="@+id/personas"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:max="30"
+        android:progress="1" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Para que Fecha:" />
+
+    <Button
+        android:id="@+id/fecha"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="dd - MMMM – yyyy" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Para que Hora:" />
+
+    <Button
+        android:id="@+id/hora"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="HH:mm" />
+
+    <Button
+        android:id="@+id/reserva"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dip"
+        android:onClick="reserva"
+        android:text="Hacer Reservacion" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/editTextCantidad"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Acerca de .."
+        android:id="@+id/buttonAcercaDe"
+        android:layout_gravity="center_horizontal"
+        android:onClick="lanzarAcercaDe" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/textViewText"
+        android:layout_gravity="center_horizontal"
+        android:background="#ff7299ff" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+1"
+        android:id="@+id/buttonMasUno"
+        android:layout_gravity="center_horizontal"
+        android:onClick="pulso" />
+
+</LinearLayout>
