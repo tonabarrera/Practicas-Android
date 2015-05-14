@@ -146,17 +146,26 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener,
         texto.setText(String.valueOf(contador));
     }
 
-
+    //El codigo que se modifico es este
     @Override
     protected void onSaveInstanceState(Bundle guardarEstado) {
         super.onSaveInstanceState(guardarEstado);
+        //Cuardamos todos los elementos que se borran en nuestro bundle
         guardarEstado.putInt("contador", contador);
+        guardarEstado.putString("fecha", fechaSel);
+        guardarEstado.putString("hora", horaSel);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle recEstado) {
         super.onRestoreInstanceState(recEstado);
+        //Recuperamos nuestros datos
         contador = recEstado.getInt("contador");
+        fechaSel = recEstado.getString("fecha");
+        horaSel = recEstado.getString("hora");
+        //Los asignamos a nuestros campos
+        fecha.setText(fechaSel);
+        hora.setText(horaSel);
         texto.setText(String.valueOf(contador));
     }
 
