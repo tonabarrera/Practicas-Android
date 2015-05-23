@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Practica 24 Posicionamiento</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="btn_batiz">CECYT 9</string>
+    <string name="btn_actual">Posición actual</string>
+    <string name="btn_marcador">Marcador</string>
+    <string name="btn_upiita">UPIITA</string>
+    <string name="btn_escom">ESCOM</string>
+    <string name="btn_esca">ESCA</string>
+    <string name="btn_upicsa">UPICSA</string>
+    <string name="btn_esfm">ESFM</string>
+    <string-array name="array_descripcion">
+        <item>Escuela Superior de Computo</item>
+        <item>Unidad Profesional Interdisciplinaria en Ingenieria y Tecnologias Avanzadas</item>
+        <item>Unidad Profesional Interdisciplinaria de Ingenieria y Ciencias Solidales y Administrativas</item>
+        <item>Escuela Superior de Comercio y Administracion</item>
+        <item>Escuela Superior de Fisica y Matematicas</item>
+    </string-array>
+</resources>
