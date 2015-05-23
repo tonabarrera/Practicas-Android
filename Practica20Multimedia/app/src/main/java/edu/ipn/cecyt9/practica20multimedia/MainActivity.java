@@ -2,6 +2,7 @@ package edu.ipn.cecyt9.practica20multimedia;
 
 import android.app.Activity;
 import android.content.DialogInterface;
+import android.media.AsyncPlayer;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -191,18 +192,19 @@ import android.view.View;
 
 
 public class MainActivity extends Activity {
-        private VideoView mVideoView;
-        private static final String TAG = MainActivity.class.getSimpleName();
-        @Override public void onCreate(Bundle savedInstanceState){
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
-            mVideoView =(VideoView)findViewById(R.id.surfaceView);
+    private VideoView mVideoView;
+    private static final String TAG = MainActivity.class.getSimpleName();
+    @Override
+    public void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mVideoView =(VideoView)findViewById(R.id.surfaceView);
 
-            Uri path = Uri.parse("android.resource://" + getPackageName() + "/raw/" + R.raw.video);
-            Log.d(TAG, String.valueOf(path));
-            mVideoView.setVideoURI(path);
-            //permitimos que el usuario pueda controlar la reproducción del vídeo mediante el objeto MediaController.
-            mVideoView.setMediaController(new MediaController(this));
-            mVideoView.start();
-        }
+        Uri path = Uri.parse("android.resource://" + getPackageName() + "/raw/" + R.raw.video);
+        Log.d(TAG, String.valueOf(path));
+        mVideoView.setVideoURI(path);
+        //permitimos que el usuario pueda controlar la reproducción del vídeo mediante el objeto MediaController.
+        mVideoView.setMediaController(new MediaController(this));
+        mVideoView.start();
     }
+}

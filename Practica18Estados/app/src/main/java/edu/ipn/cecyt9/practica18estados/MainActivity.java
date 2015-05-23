@@ -1,3 +1,13 @@
+/*
+AUTOR: Barrera Pérez Carlos Tonatihu
+VERSION: 2.0
+DESCRIPCION: Esta aplicacion guarda los datos y los restaura cuando se da vuelta a la pantalla del celular
+OBSERVACIONES: En esta version se agregaron unas lineas de codigo para que se guarde la fecha y hora y despues pueda volver a mostrarse
+COMPILACION: Se compila cuando se ejecuta
+EJECUCION: Solo se da click en el boton 'run app', shift + F10 o click en la pestaña 'Run' y después
+        click en 'Run App' y se selecciona el emulador o un dispositivo android.
+*/
+
 package edu.ipn.cecyt9.practica18estados;
 
 import java.text.ParseException;
@@ -150,7 +160,7 @@ public class MainActivity extends Activity implements OnSeekBarChangeListener,
     @Override
     protected void onSaveInstanceState(Bundle guardarEstado) {
         super.onSaveInstanceState(guardarEstado);
-        //Cuardamos todos los elementos que se borran en nuestro bundle
+        //Guardamos todos los elementos que se borran en nuestro bundle
         guardarEstado.putInt("contador", contador);
         guardarEstado.putString("fecha", fechaSel);
         guardarEstado.putString("hora", horaSel);
