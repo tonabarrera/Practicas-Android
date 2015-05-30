@@ -1,3 +1,16 @@
+/*
+AUTOR: Barrera Pérez Carlos Tonatihu
+
+VERSION: 2.0
+
+DESCRIPCION: Este programa muestra las ubicaciones con marcadores de distintos lugares
+
+OBSERVACIONES: En esta version agregamos otras ubicaciones
+COMPILACION: Se compila cuando se ejecuta
+
+EJECUCION: Solo se da click en el boton 'run app', shift + F10 o click en la pestaña 'Run' y después
+        click en 'Run App' y se selecciona el emulador o un dispositivo android.
+*/
 package edu.ipn.cecyt9.practica24posicionamiento;
 //Importamos lo necesario
 import android.os.Bundle;
