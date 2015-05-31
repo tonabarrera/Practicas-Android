@@ -7,4 +7,5 @@
     <string name="start_email">Iniciar Servicio Email</string>
     <string name="stop_music">Terminar Servicio Musica</string>
     <string name="start_music">Iniciar Servicio Musica</string>
+    <string name="text_title">Servicios</string>
 </resources>

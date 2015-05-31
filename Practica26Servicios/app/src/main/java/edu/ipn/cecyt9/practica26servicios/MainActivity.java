@@ -1,9 +1,11 @@
 package edu.ipn.cecyt9.practica26servicios;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -14,25 +16,19 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public void onClickStartMusic(View view){
+        startService(new Intent(this, MusicService.class));
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    public void onClickStopMusic(View view){
+        stopService(new Intent(this, MusicService.class));
+    }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+    public void onClickStartEmail(View view){
+        startService(new Intent(this, SendEmailService.class));
+    }
 
-        return super.onOptionsItemSelected(item);
+    public void onClickStopEmail(View view){
+        stopService(new Intent(this, SendEmailService.class));
     }
 }
