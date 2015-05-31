@@ -1,7 +1,5 @@
 package edu.ipn.cecyt9.practica26servicios;
 
-import android.util.Log;
-
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
@@ -18,7 +16,7 @@ import javax.mail.internet.MimeMessage;
  */
 public class EnviarEmail{
     private String user = "strongfitapp@gmail.com";
-    private String password = "";
+    private String password = "toyelcacas";
     private Session sesion;
 
     public EnviarEmail() {
@@ -27,7 +25,6 @@ public class EnviarEmail{
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.auth", "true");
-
         sesion = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(user, password);

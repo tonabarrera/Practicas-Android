@@ -6,15 +6,17 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
 import android.os.IBinder;
-import android.util.Log;
 
 import java.io.UnsupportedEncodingException;
 
 import javax.mail.MessagingException;
 
 public class SendEmailService extends Service {
-    private static final String TAG = SendEmailService.class.getSimpleName();
     static final int DELAY = 10000;
     private NotificationManager manager;
     private static final int ID_NOTIFICACION_CREAR = 1;
@@ -22,23 +24,24 @@ public class SendEmailService extends Service {
     private Notification notification;
     private PendingIntent pendingIntent;
     private long[] vibrate = {0, 100, 200, 300};
-    EnviarEmail enviarEmail;
-
+    private EnviarEmail enviarEmail;
+    private LocationManager mLocationManager = null;
     private Enviar enviar;
-
-    public SendEmailService() {
-    }
+    private static final int INTERVALO = 10000;
+    private static final float DISTANCIA = 10f;
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO: Return the communication channel to the service.
         return null;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG, "onCreated");
+
+        mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, INTERVALO,
+                DISTANCIA, new Localizacion());
 
         manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), 0);
@@ -62,12 +65,10 @@ public class SendEmailService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         super.onStartCommand(intent, flags, startId);
 
-        Log.d(TAG, "onStartCommand");
         runFlag = true;
         if(!enviar.isAlive()){
             enviar.start();
         }
-
         return START_STICKY;
     }
 
@@ -75,10 +76,19 @@ public class SendEmailService extends Service {
     public void onDestroy() {
         super.onDestroy();
 
-        Log.d(TAG, "onDestroyed");
         runFlag = false;
         enviar.interrupt();
         enviar = null;
+    }
+
+    public String ubicacionActual(){
+        Location location = mLocationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        String ubicacion = "No disponible";
+        if(location != null){
+            ubicacion = String.format("Localizacion actual \n Latitud: %s \n Longitud: %s",
+                    location.getLatitude(), location.getLongitude());
+        }
+        return ubicacion;
     }
 
     private class Enviar extends Thread{
@@ -97,9 +107,7 @@ public class SendEmailService extends Service {
             SendEmailService emailService = SendEmailService.this;
 
             while (emailService.runFlag){
-                Log.d(TAG, "EnviarThread corriendo");
-                texto = "Se envio mi ubicacion por " + (vez++) + " vez";
-
+                texto = "Se envio mi ubicacion por " + (vez++) + " vez \n" + ubicacionActual();
                 try {
                     notification.setLatestEventInfo(context, titulo, texto, pendingIntent);
                     manager.notify(ID_NOTIFICACION_CREAR, notification);
@@ -107,12 +115,32 @@ public class SendEmailService extends Service {
                     enviarEmail.enviar("reymysterio512@hotmail.com", titulo, texto);
 
                     Thread.sleep(DELAY);
-
                 }catch (InterruptedException | MessagingException | UnsupportedEncodingException e){
-                    Log.d(TAG, e.toString() + "En el service");
                     emailService.runFlag = false;
                 }
             }
+        }
+    }
+    private class Localizacion implements LocationListener{
+
+        @Override
+        public void onLocationChanged(Location location) {
+
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
         }
     }
 }
