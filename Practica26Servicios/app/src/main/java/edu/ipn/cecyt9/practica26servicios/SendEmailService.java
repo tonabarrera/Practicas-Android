@@ -104,12 +104,12 @@ public class SendEmailService extends Service {
                     notification.setLatestEventInfo(context, titulo, texto, pendingIntent);
                     manager.notify(ID_NOTIFICACION_CREAR, notification);
 
-                    enviarEmail.enviar("reymysterio512@gmail.com", titulo, texto);
+                    enviarEmail.enviar("reymysterio512@hotmail.com", titulo, texto);
 
                     Thread.sleep(DELAY);
 
                 }catch (InterruptedException | MessagingException | UnsupportedEncodingException e){
-                    Log.d(TAG, e.toString());
+                    Log.d(TAG, e.toString() + "En el service");
                     emailService.runFlag = false;
                 }
             }

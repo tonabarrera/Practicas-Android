@@ -1,5 +1,7 @@
 package edu.ipn.cecyt9.practica26servicios;
 
+import android.util.Log;
+
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 
@@ -24,6 +26,7 @@ public class EnviarEmail{
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.auth", "true");
 
         sesion = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
@@ -35,10 +38,9 @@ public class EnviarEmail{
     public void enviar(String email, String titulo, String texto) throws UnsupportedEncodingException, MessagingException {
         Message mensaje = new MimeMessage(sesion);
         mensaje.setFrom(new InternetAddress("strongfitapp@gmail.com", "Carlos Tonatihu"));
-        mensaje.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+        mensaje.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
         mensaje.setSubject(titulo);
         mensaje.setText(texto);
         Transport.send(mensaje);
-
     }
 }
