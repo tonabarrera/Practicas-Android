@@ -1,16 +1,103 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:text="@string/hello_world"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:background="#d4d4d4" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A que Nombre:" />
+
+            <EditText
+                android:id="@+id/nombre"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView1"
+                android:inputType="textCapWords"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/cuantasPersonas"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nombre"
+                android:text="Personas: %d" />
+
+            <SeekBar
+                android:id="@+id/personas"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cuantasPersonas"
+                android:max="30"
+                android:progress="1" />
+
+            <TextView
+                android:id="@+id/paquefecha"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/personas"
+                android:text="Para que Fecha:" />
+
+            <Button
+                android:id="@+id/fecha"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/paquefecha"
+                android:text="dd - MMMM – yyyy" />
+
+            <TextView
+                android:id="@+id/paquehora"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fecha"
+                android:text="Para que Hora:" />
+
+            <Button
+                android:id="@+id/hora"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/paquehora"
+                android:text="HH:mm" />
+
+            <Button
+                android:id="@+id/reserva"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hora"
+                android:layout_marginTop="15dip"
+                android:onClick="reserva"
+                android:text="Hacer Reservacion" />
+
+            <Button
+                android:id="@+id/verTabla"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/reserva"
+                android:layout_marginTop="5dp"
+                android:onClick="verTabla"
+                android:text="Ver Tabla" />
+
+            <TextView
+                android:id="@+id/datos"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/textView1"
+                android:layout_below="@+id/verTabla"
+                android:layout_marginTop="5dp"
+                android:text="TextView" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
